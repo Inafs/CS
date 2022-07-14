@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block index %}
+      <div class="intro">
+        <div class="intro-content">
+          <div class="wrapper intro-content__wrapper">
+            <div class="header-block intro-content__title">
+              <h1>Ремонт и обслуживание дорог</h1>
+              <div class="header-block__text header-block__text--1">Ремонт <br> и обслуживание дорог</div>
+            </div>
+            <div class="intro-content__text">
+              <!-- Текст из админки start -->
+              <p>Компания “ДорСтройСервис” занимается производством и укладкой асфальта, а так же ремонтом и обслуживанием дорог</p>
+              <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. </p>
+              <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов.</p>
+              <!-- Текст из админки end -->
+              <a href="#0" class="btn btn--orange intro-content__btn">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-container intro-slider js-intro-slider">
+          <div class="swiper-wrapper no-swiping">
+            <div class="swiper-slide intro-slider__slide">
+              <picture>
+                <source srcset="{% static 'images/intro-slide-1.webp' %}" type="image/webp">
+                <img src="{% static 'images/intro-slide-1.jpg' %}" alt="slide_title">
+              </picture>
+            </div>
+            <div class="swiper-slide intro-slider__slide">
+              <picture>
+                <source srcset="{% static 'images/intro-slide-2.webp' %}" type="image/webp">
+                <img src="{% static 'images/intro-slide-2.jpg' %}" alt="slide_title">
+              </picture>
+            </div>
+            <div class="swiper-slide intro-slider__slide">
+              <picture>
+                <source srcset="{% static 'images/intro-slide-3.webp' %}" type="image/webp">
+                <img src="{% static 'images/intro-slide-3.jpg' %}" alt="slide_title">
+              </picture>
+            </div>
+            <div class="swiper-slide intro-slider__slide">
+              <picture>
+                <source srcset="{% static 'images/intro-slide-4.webp' %}" type="image/webp">
+                <img src="{% static 'images/intro-slide-4.jpg' %}" alt="slide_title">
+              </picture>
+            </div>
+          </div>
+          <div class="intro-slider__pagination"></div>
+          <div class="intro-slider__controls">
+            <button type="button" class="intro-slider__btn intro-slider__btn--prev"></button>
+
+            <div class="intro-slider__numbers">
+              <span class="current js-intro-slider__current">1</span>/<span class="count js-intro-slider__count"></span>
+            </div>
+
+            <button type="button" class="intro-slider__btn intro-slider__btn--next"></button>
+          </div>
+        </div>
+      </div>
+      <section class="projects">
+        <div class="wrapper projects__wrapper">
+          <div class="projects-top">
+            <div class="header-block">
+              <h2>Выполненные проекты</h2>
+              <div class="header-block__text header-block__text--2">Выполненные<br>проекты</div>
+            </div>
+            <a href="#0" class="projects-all">Все проекты</a>
+          </div>
+          <ul class="projects-items">
+            <li class="projects-item">
+              <a href="#0" class="project">
+                <div class="project-image">
+                  <picture>
+                    <source srcset="{% static 'images/project-1.webp' %}" type="image/webp">
+                    <img src="{% static 'images/project-1.jpg' %}" alt="Реконструкция участка трассы М60">
+                  </picture>
+                </div>
+                <div class="project-overlay"></div>
+                <h3 class="project-title">Реконструкция участка трассы М60</h3>
+                <div class="project-hover">
+                  <div>
+                    <h3 class="project-hover__title">Реконструкция участка трассы М60</h3>
+                    <!-- Текст из админки start -->
+                    <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для
+                      текстов на латинице с начала XVI века.</p>
+                    <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum
+                      для распечатки образцов.</p>
+                    <!-- Текст из админки end -->
+                  </div>
+                  <div class="project-hover__read">
+                    Читать
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="projects-item">
+              <a href="#0" class="project">
+                <div class="project-image">
+                  <picture>
+                    <source srcset="{% static 'images/project-2.webp' %}" type="image/webp">
+                    <img src="{% static 'images/project-2.jpg' %}" alt="Строительство автомобильной дороги в пгт Бежаницы">
+                  </picture>
+                </div>
+                <div class="project-overlay"></div>
+                <h3 class="project-title">Строительство автомобильной дороги в пгт Бежаницы</h3>
+                <div class="project-hover">
+                  <div>
+                    <h3 class="project-hover__title">Строительство автомобильной дороги в пгт Бежаницы</h3>
+                    <!-- Текст из админки start -->
+                    <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для
+                      текстов на латинице с начала XVI века.</p>
+                    <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum
+                      для распечатки образцов.</p>
+                    <!-- Текст из админки end -->
+                  </div>
+                  <div class="project-hover__read">
+                    Читать
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="projects-item">
+              <a href="#0" class="project">
+                <div class="project-image">
+                  <picture>
+                    <source srcset="{% static 'images/project-3.webp' %}" type="image/webp">
+                    <img src="{% static 'images/project-3.jpg' %}" alt="Реконструкция участка трассы М60">
+                  </picture>
+                </div>
+                <div class="project-overlay"></div>
+                <h3 class="project-title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
+                <div class="project-hover">
+                  <div>
+                    <h3 class="project-hover__title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
+                    <!-- Текст из админки start -->
+                    <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для
+                      текстов на латинице с начала XVI века.</p>
+                    <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum
+                      для распечатки образцов.</p>
+                    <!-- Текст из админки end -->
+                  </div>
+                  <div class="project-hover__read">
+                    Читать
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="production">
+        <div class="wrapper production__wrapper">
+          <div class="header-block">
+            <h2>Производственная база</h2>
+            <div class="header-block__text header-block__text--2 header-block__text--black">Производственная<br>база</div>
+          </div>
+
+          <div class="swiper-container production-slider js-production-slider">
+            <div class="swiper-wrapper">
+              <div class="production-slide swiper-slide">
+                <picture>
+                  <source srcset="{% static 'images/production-slide-1.webp' %}" type="image/webp">
+                  <img src="{% static 'images/production-slide-1.jpg' %}" alt="production-slide_alt">
+                </picture>
+              </div>
+              <div class="production-slide swiper-slide">
+                <picture>
+                  <source srcset="{% static 'images/production-slide-2.webp' %}" type="image/webp">
+                  <img src="{% static 'images/production-slide-2.jpg' %}" alt="production-slide_alt">
+                </picture>
+              </div>
+              <div class="production-slide swiper-slide">
+                <picture>
+                  <source srcset="{% static 'images/production-slide-3.webp' %}" type="image/webp">
+                  <img src="{% static 'images/production-slide-3.jpg' %}" alt="production-slide_alt">
+                </picture>
+              </div>
+              <div class="production-slide swiper-slide">
+                <picture>
+                  <source srcset="{% static 'images/production-slide-4.webp' %}" type="image/webp">
+                  <img src="{% static 'images/production-slide-4.jpg' %}" alt="production-slide_alt">
+                </picture>
+              </div>
+            </div>
+            <div class="production-slider__pagination js-product-slider-pagination"></div>
+            <button type="button" class="production-slider__btn production-slider__btn--prev"></button>
+            <button type="button" class="production-slider__btn production-slider__btn--next"></button>
+          </div>
+
+          <div class="production-info">
+            <h3 class="production-info__title">В производственную базу компании “ДорСтройСервис” входят:</h3>
+            <ul class="production-info__list">
+              <li class="production-info__item">2 завода по производству асфальта (г. Псков, Остров)</li>
+              <li class="production-info__item">Штат из 300 квалифицированных специалистов</li>
+              <li class="production-info__item">Парк из 700 единиц техники</li>
+            </ul>
+            <a href="#0" class="btn btn--orange production-info__link">Читать</a>
+          </div>
+        </div>
+      </section>
+      <section class="instagram">
+        <div class="wrapper instagram__wrapper">
+          <div class="header-block">
+            <h2>Мы в Instagram</h2>
+            <div class="header-block__text header-block__text--2 header-block__text--black">Мы<br>в Instagram</div>
+          </div>
+          <div class="instagram__slider swiper-container js-insta-slider">
+            <div class="swiper-wrapper">
+            </div>
+            <div class="swiper-button instagram-button instagram-button-prev">
+              <span class="icon">
+                <svg width="17" height="8" viewBox="0 0 17 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.3536 4.35355C16.5488 4.15829 16.5488 3.84171 16.3536 3.64645L13.1716 0.464467C12.9763 0.269205 12.6597 0.269205 12.4645 0.464467C12.2692 0.659729 12.2692 0.976312 12.4645 1.17157L15.2929 4L12.4645 6.82843C12.2692 7.02369 12.2692 7.34027 12.4645 7.53553C12.6597 7.7308 12.9763 7.7308 13.1716 7.53554L16.3536 4.35355ZM-4.37114e-08 4.5L16 4.5L16 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#1B1B1B" />
+                </svg>
+
+              </span>
+            </div>
+            <div class="swiper-button instagram-button instagram-button-next">
+              <span class="icon">
+                <svg width="17" height="8" viewBox="0 0 17 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.3536 4.35355C16.5488 4.15829 16.5488 3.84171 16.3536 3.64645L13.1716 0.464467C12.9763 0.269205 12.6597 0.269205 12.4645 0.464467C12.2692 0.659729 12.2692 0.976312 12.4645 1.17157L15.2929 4L12.4645 6.82843C12.2692 7.02369 12.2692 7.34027 12.4645 7.53553C12.6597 7.7308 12.9763 7.7308 13.1716 7.53554L16.3536 4.35355ZM-4.37114e-08 4.5L16 4.5L16 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#1B1B1B" />
+                </svg>
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div itemscope itemtype="http://schema.org/Organization" hidden>
+      <span itemprop="name">ООО "ДорСтройСервис"</span>
+      <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        180559, Псковская обл., Псковский р-н, д. Родина, ул. Юбилейная д. 17
+      </div>
+      <span itemprop="telephone">+7(8112) 67-30-97</span>
+      <span itemprop="email">dorstroiservis.dss@yandex.ru</span>
+    </div>
+
+{% endblock %}
