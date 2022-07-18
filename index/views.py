@@ -19,7 +19,7 @@ def first_page(request):
 
     if request.POST:
         name = request.POST['name']
-        phone = request.POST['order_phone']
+        phone = request.POST['phone']
         mail = request.POST['mail']
         text = request.POST['text']
         element = Order(order_name = name, order_phone = phone, order_mail = mail, order_text = text)
