@@ -1,8 +1,19 @@
 from django import forms
+from django.forms import ModelForm
+from .models import Order
 
 
-class OrderForm(forms.Form):
-    name = forms.CharField(max_length=200)
-    phone = forms.CharField(max_length=200)
-    mail = forms.CharField(max_length=200, required=False)
-    text = forms.CharField(max_length=1000, required=False)
+class OrderForm(ModelForm):
+    class Meta:
+        model = Order
+        fields = ['order_name', 'order_phone', 'order_mail', 'order_text']
+        widgets = {
+            'order_name': forms.TextInput(attrs={'class' : 'input-group__input', 'placeholder': 'Ivan'}),
+            'order_phone': forms.TextInput(attrs={'class' : 'input-group__input', 'placeholder': '8 (954) 342-11-23'}),
+            'order_mail': forms.TextInput(attrs={'class' : 'input-group__input'}),
+            'order_text': forms.TextInput(attrs={'class' : 'input-group__input'}),
+        }
+    #name = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class' : 'input-group__input', 'placeholder': '8 (954) 342-11-23'}))
+    #phone = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'class' : 'input-group__input'}))
+    #mail = forms.CharField(max_length=200, required=False, widget=forms.TextInput(attrs={'class' : 'input-group__input'}))
+   # text = forms.CharField(max_length=1000, required=False, widget=forms.TextInput(attrs={'class' : 'input-group__input'}))

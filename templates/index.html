@@ -479,7 +479,8 @@ creature: 2020
     <div class="header-block">
       <div class="header-block__text header-block__text--2 header-block__text--black">Форма <br> обратной связи</div>
     </div>
-    <form action="#0">
+    <form action="#0" method="POST">
+      {% csrf_token %}
       <div class="modal-form">
         <div class="required-fields__message"><span>*</span> - поля, обязательные для заполнения</div>
 
@@ -487,21 +488,25 @@ creature: 2020
           <!-- Errorlist сюда -->
           <input type="text" class="input-group__input" placeholder="Сергеев Михаил" required>
           <span class="input-group__title">Имя</span>
+          {{ form.name }}
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="tel" class="input-group__input" placeholder="8 (954) 342-11-23" required>
+          {{ form.phone }}
           <span class="input-group__title">Телефон</span>
+          {{ form.phone }}
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
           <input type="email" class="input-group__input" placeholder="adret1224@mail.ru">
           <span class="input-group__title">E-mail</span>
+          {{ form.mail }}
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
           <textarea class="input-group__textarea" placeholder="Текст вопроса"></textarea>
           <span class="input-group__title">Вопрос</span>
+          {{ form.text }}
         </label>
 
         <div class="modal-form__policy">Отправляя форму, я соглашаюсь с
