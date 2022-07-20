@@ -37,15 +37,15 @@ class DownCards(models.Model):
 
 
 class Order(models.Model):
-    order_dt = models.DateTimeField(auto_now=True)
-    order_name = models.CharField(max_length=200, verbose_name='Имя')
-    order_phone = models.CharField(max_length=200, verbose_name='Телефон')
-    order_mail = models.CharField(max_length=200, verbose_name='Почта')
-    order_text = models.TextField(max_length=1000, verbose_name='Сообщение')
+    order_dt = models.DateTimeField(auto_now=True, verbose_name='Дата')
+    order_name = models.CharField(max_length=100, verbose_name='Имя')
+    order_phone = models.CharField(max_length=12, verbose_name='Телефон')
+    order_mail = models.EmailField( null=True, verbose_name='Почта')
+    order_text = models.TextField(max_length=1000, null=True, verbose_name='Сообщение')
 
     def __str__(self):
         return self.order_name
 
     class Meta:
-        verbose_name = 'Заявку'
-        verbose_name_plural = 'Заявки'
+        verbose_name = 'Вопросы клиентов'
+        verbose_name_plural = 'Обратная связь'
