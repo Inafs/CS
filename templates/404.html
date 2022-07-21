@@ -1,3 +1,4 @@
+{% load static %}
 <!--
 
 ╔╔╗╔╔╔═╔═  ╔╗╦║║╦╗╦╔╗
@@ -23,19 +24,19 @@ creature: 2020
   <meta name="keywords" content="псков, создание сайтов, интернет реклама, редизайн, раскрутка, продвижение, обслуживание сайтов, администрирование">
   <link rel="canonical" href="">
 
-  <link href="css/plugins.css" type="text/css" rel="stylesheet">
-  <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/plugins.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
 
-  <link href="css/404.css" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/index.css' %}" type="text/css" rel="stylesheet">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+  <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+  <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="favicon/browserconfig.xml">
+  <meta name="msapplication-config" content="{% static 'favicon/browserconfig.xml' %}">
   <meta name="theme-color" content="#ffffff">
 
   <!--og-->
@@ -58,13 +59,13 @@ creature: 2020
   <meta name="twitter:description" content="Content description less than 200 characters">
   <meta name="twitter:image" content="https://example.com/image.jpg">
 </head>
-<body class="inner-page inner-page--error">
+<body class="">
   <div class="container">
     <div class="content">
       <header class="header">
         <div class="wrapper header__wrapper">
           <a href="/" class="header-logo">
-            <img src="images/logo.svg" alt="ДорСтройСервис" title="ДорСтройСервис">
+            <img src="{% static 'images/logo.svg' %}" alt="ДорСтройСервис" title="ДорСтройСервис">
           </a>
           <div class="header-burger js-burger-open">
             <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -154,6 +155,7 @@ creature: 2020
         </div>
       </header>
 
+
       <div class="error-page">
         <div class="wrapper error-page__wrapper">
           <div class="error-page__content">
@@ -186,7 +188,7 @@ creature: 2020
     <footer class="footer">
       <div class="wrapper footer__wrapper">
         <a href="/" class="footer__logo">
-          <img src="images/logo.svg" alt="ДорСтройСервис" title="ДорСтройСервис">
+          <img src="{% static 'images/logo.svg' %}" alt="ДорСтройСервис" title="ДорСтройСервис">
         </a>
         <div class="footer-content">
           <div class="footer-content__top">
@@ -225,7 +227,7 @@ creature: 2020
               <a href="#0" class="footer-contacts__item footer-contacts__item--email">dorstroiservis.dss@yandex.ru</a>
               <a href="#0" class="footer-contacts__item footer-contacts__item--phone">+7(8112) 67-30-97</a>
             </div>
-
+    
             <div class="footer-left">
               <div class="footer-socials">
                 <a href="#0" class="footer-socials__item" target="_blank" title="Мы">
@@ -234,7 +236,7 @@ creature: 2020
                     <path d="M12.002 6.71765C9.08451 6.71765 6.71744 9.08457 6.71744 12.0022C6.71744 14.9198 9.08451 17.2867 12.002 17.2867C14.9195 17.2867 17.2865 14.9198 17.2865 12.0022C17.2865 9.08457 14.9195 6.71765 12.002 6.71765ZM12.002 15.4301C10.1093 15.4301 8.57402 13.895 8.57402 12.0022C8.57402 10.1093 10.1093 8.57423 12.002 8.57423C13.8948 8.57423 15.4299 10.1093 15.4299 12.0022C15.4299 13.895 13.8948 15.4301 12.002 15.4301Z" fill="white" />
                     <path d="M18.729 6.50848C18.729 7.18976 18.1766 7.74217 17.4952 7.74217C16.8139 7.74217 16.2615 7.18976 16.2615 6.50848C16.2615 5.82703 16.8139 5.27478 17.4952 5.27478C18.1766 5.27478 18.729 5.82703 18.729 6.50848Z" fill="white" />
                   </svg>
-
+    
                 </a>
                 <a href="#0" class="footer-socials__item" target="_blank" title="Мы">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -247,16 +249,16 @@ creature: 2020
                       </clipPath>
                     </defs>
                   </svg>
-
+    
                 </a>
               </div>
-
+    
               <a href="#write-us-modal" class="btn btn--orange footer__write-us" data-modal>Написать нам</a>
-
+    
             </div>
           </div>
         </div>
-
+    
         <div class="footer-bottom">
           <a href="#0" class="footer-bottom__policy">Политика конфиденциальности</a>
           <div class="footer-bottom__coffee">Сделано в агентстве интернет-рекламы
@@ -282,63 +284,71 @@ creature: 2020
       </div>
     </div>
     <!--</noindex>-->
-  </div>
-
-  <div class="modal mfp-hide" id="write-us-modal">
+    </div>
+    
+    <div class="modal mfp-hide" id="write-us-modal">
     <div class="header-block">
       <div class="header-block__text header-block__text--2 header-block__text--black">Форма <br> обратной связи</div>
     </div>
-    <form action="#0">
+    <form action="#0" method="POST">
+      {% csrf_token %}
       <div class="modal-form">
         <div class="required-fields__message"><span>*</span> - поля, обязательные для заполнения</div>
-
+    
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="text" class="input-group__input" placeholder="Сергеев Михаил" required>
+          {{ form.name }}
           <span class="input-group__title">Имя</span>
+          
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="tel" class="input-group__input" placeholder="8 (954) 342-11-23" required>
+          {{ form.phone }}
           <span class="input-group__title">Телефон</span>
+          
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="email" class="input-group__input" placeholder="adret1224@mail.ru">
+          {{ form.mail }}
           <span class="input-group__title">E-mail</span>
+          
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <textarea class="input-group__textarea" placeholder="Текст вопроса"></textarea>
+          {{ form.text }}
           <span class="input-group__title">Вопрос</span>
+          
         </label>
-
+    
         <div class="modal-form__policy">Отправляя форму, я соглашаюсь с
           <a href="#0">политикой обработки персональных данных</a>
         </div>
-
+    
         <button type="submit" title="Отправить" class="btn btn--orange-fill modal-form__btn">Отправить</button>
-
+    
       </div>
     </form>
-  </div>
-
-  <!-- Успешная отправка -->
-  <div class="modal mfp-hide" style="display: none;">
+    </div>
+    
+    <!-- Успешная отправка -->
+    <div class="modal mfp-hide" style="display: none;">
     <div class="modal-success">
       <span class="img">
-        <img src="images/modal-success.svg" alt="Ваше сообщение успешно отправлено" title="Ваше сообщение успешно отправлено">
+        <img src="{% static 'images/modal-success.svg' %}" alt="Ваше сообщение успешно отправлено" title="Ваше сообщение успешно отправлено">
       </span>
       <span class="title">Ваше сообщение успешно отправлено</span>
     </div>
-  </div>
-
-  <script src="js/combined.min.js"></script>
-  <script src="js/libs.js"></script>
-
-  <div class="counters" hidden>
+    </div>
+    
+    <script src="{% static 'js/combined.min.js' %}"></script>
+    <script src="{% static 'js/libs.js' %}"></script>
+    
+    <script src="{% static 'js/index-scripts.js' %}"></script>
+    
+    <div class="counters" hidden>
     <!--    counters    -->
-  </div>
-
-</body>
-</html>
+    </div>
+    
+    </body>
+    </html>
+    
