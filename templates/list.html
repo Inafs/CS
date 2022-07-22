@@ -1,3 +1,4 @@
+{% load static %}
 <!--
 
 ╔╔╗╔╔╔═╔═  ╔╗╦║║╦╗╦╔╗
@@ -23,19 +24,19 @@ creature: 2020
   <meta name="keywords" content="псков, создание сайтов, интернет реклама, редизайн, раскрутка, продвижение, обслуживание сайтов, администрирование">
   <link rel="canonical" href="">
 
-  <link href="css/plugins.css" type="text/css" rel="stylesheet">
-  <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/plugins.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" type="text/css" rel="stylesheet">
 
-  <link href="css/list.css" type="text/css" rel="stylesheet">
+  <link href="{% static 'css/list.css' %}" type="text/css" rel="stylesheet">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+  <link rel="mask-icon" href="{% static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+  <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="favicon/browserconfig.xml">
+  <meta name="msapplication-config" content="{% static 'favicon/browserconfig.xml' %}">
   <meta name="theme-color" content="#ffffff">
 
   <!--og-->
@@ -64,7 +65,7 @@ creature: 2020
       <header class="header">
         <div class="wrapper header__wrapper">
           <a href="/" class="header-logo">
-            <img src="images/logo.svg" alt="ДорСтройСервис" title="ДорСтройСервис">
+            <img src="{% static 'images/logo.svg' %}" alt="ДорСтройСервис" title="ДорСтройСервис">
           </a>
           <div class="header-burger js-burger-open">
             <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +125,7 @@ creature: 2020
                 <ul class="header-nav__list">
                   <li class="header-nav__item">
                     <!-- Активному пункту меню вывести класс active -->
-                    <a href="#0" class="header-nav__link active">Главная</a>
+                    <a href="" class="header-nav__link active">Главная</a>
                   </li>
                   <li class="header-nav__item">
                     <a href="#0" class="header-nav__link">о нас</a>
@@ -139,7 +140,7 @@ creature: 2020
                     <a href="#0" class="header-nav__link">объекты</a>
                   </li>
                   <li class="header-nav__item">
-                    <a href="#0" class="header-nav__link">новости</a>
+                    <a href="news/" class="header-nav__link">новости</a>
                   </li>
                   <li class="header-nav__item">
                     <a href="#0" class="header-nav__link">производственная база</a>
@@ -166,109 +167,110 @@ creature: 2020
 
         <!-- Данная секция .projects - практически полный копипаст с главной. Отличается только заголовками и модификаторами -->
         <!-- Здесь добавляется модификатор projects--list -->
-        <section class="projects projects--list">
-          <div class="wrapper projects__wrapper">
-            <div class="projects-top">
-              <!-- Здесь добавляется модификатор .header-block--bottom -->
-              <div class="header-block header-block--bottom">
-                <h2>Список новостей</h2>
-                <div class="header-block__text header-block__text--2">Список новостей</div>
+          <section class="projects projects--list">
+            <div class="wrapper projects__wrapper">
+              <div class="projects-top">
+                <!-- Здесь добавляется модификатор .header-block--bottom -->
+                <div class="header-block header-block--bottom">
+                  <h2>Список новостей</h2>
+                  <div class="header-block__text header-block__text--2">Список новостей</div>
+                </div>
+                <!-- Ссылка на все проекты убрана -->
               </div>
-              <!-- Ссылка на все проекты убрана -->
+              {% for item in sliders%}
+                <ul class="projects-items">
+                  <li class="projects-item">
+                    <a href="#0" class="project">
+                      {% for object in item.images.all %}
+                      <div class="project-image">
+                        <picture>
+                          <source srcset="{{ object.image_webp.url }}" type="image/webp">
+                          <img src="{{ object.image_jpg.url }}" alt="Реконструкция участка трассы М60">
+                        </picture>
+                      </div>
+                      {%endfor %}
+                      {% for object in item.description.all %}
+                        <div class="project-overlay"></div>
+                        <h3 class="project-title">{{ object.title|safe }}</h3>
+                        <div class="project-hover">
+                          <div>
+                            <h3 class="project-hover__title">{{ object.title|safe }}</h3>
+                            <!-- Текст из админки start -->
+                            <p>{{ object.text|safe }} </p>
+                            <!-- Текст из админки end -->
+                          </div>
+                          <div class="project-hover__read">
+                            Читать
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </a>
+                  </li>
+                  {% comment %} <li class="projects-item">
+                    <a href="#0" class="project">
+                      <div class="project-image">
+                        <picture>
+                          <source srcset="{% static 'images/project-2.webp' %}" type="image/webp">
+                          <img src="{% static 'images/project-2.jpg' %}" alt="Строительство автомобильной дороги в пгт Бежаницы">
+                        </picture>
+                      </div>
+                      <div class="project-overlay"></div>
+                      <h3 class="project-title">Строительство автомобильной дороги в пгт Бежаницы</h3>
+                      <div class="project-hover">
+                        <div>
+                          <h3 class="project-hover__title">Строительство автомобильной дороги в пгт Бежаницы</h3>
+                          <!-- Текст из админки start -->
+                          <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"
+                            для
+                            текстов на латинице с начала XVI века.</p>
+                          <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя
+                            Lorem
+                            Ipsum
+                            для распечатки образцов.</p>
+                          <!-- Текст из админки end -->
+                        </div>
+                        <div class="project-hover__read">
+                          Читать
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="projects-item">
+                    <a href="#0" class="project">
+                      <div class="project-image">
+                        <picture>
+                          <source srcset="{% static 'images/project-3.webp' %}" type="image/webp">
+                          <img src="{% static 'images/project-3.jpg' %}" alt="Реконструкция участка трассы М60">
+                        </picture>
+                      </div>
+                      <div class="project-overlay"></div>
+                      <h3 class="project-title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
+                      <div class="project-hover">
+                        <div>
+                          <h3 class="project-hover__title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
+                          <!-- Текст из админки start -->
+                          <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"
+                            для
+                            текстов на латинице с начала XVI века.</p>
+                          <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя
+                            Lorem
+                            Ipsum
+                            для распечатки образцов.</p>
+                          <!-- Текст из админки end -->
+                        </div>
+                        <div class="project-hover__read">
+                          Читать
+                        </div>
+                      </div>
+                    </a>
+                  </li> {% endcomment %}
+                </ul>
+                {% comment %} {% endfor %} {% endcomment %}
+              {%endfor %}
             </div>
-            <ul class="projects-items">
-              <li class="projects-item">
-                <a href="#0" class="project">
-                  <div class="project-image">
-                    <picture>
-                      <source srcset="images/project-1.webp" type="image/webp">
-                      <img src="images/project-1.jpg" alt="Реконструкция участка трассы М60">
-                    </picture>
-                  </div>
-                  <div class="project-overlay"></div>
-                  <h3 class="project-title">Реконструкция участка трассы М60</h3>
-                  <div class="project-hover">
-                    <div>
-                      <h3 class="project-hover__title">Реконструкция участка трассы М60</h3>
-                      <!-- Текст из админки start -->
-                      <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"
-                        для
-                        текстов на латинице с начала XVI века.</p>
-                      <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя
-                        Lorem
-                        Ipsum
-                        для распечатки образцов.</p>
-                      <!-- Текст из админки end -->
-                    </div>
-                    <div class="project-hover__read">
-                      Читать
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="projects-item">
-                <a href="#0" class="project">
-                  <div class="project-image">
-                    <picture>
-                      <source srcset="images/project-2.webp" type="image/webp">
-                      <img src="images/project-2.jpg" alt="Строительство автомобильной дороги в пгт Бежаницы">
-                    </picture>
-                  </div>
-                  <div class="project-overlay"></div>
-                  <h3 class="project-title">Строительство автомобильной дороги в пгт Бежаницы</h3>
-                  <div class="project-hover">
-                    <div>
-                      <h3 class="project-hover__title">Строительство автомобильной дороги в пгт Бежаницы</h3>
-                      <!-- Текст из админки start -->
-                      <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"
-                        для
-                        текстов на латинице с начала XVI века.</p>
-                      <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя
-                        Lorem
-                        Ipsum
-                        для распечатки образцов.</p>
-                      <!-- Текст из админки end -->
-                    </div>
-                    <div class="project-hover__read">
-                      Читать
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="projects-item">
-                <a href="#0" class="project">
-                  <div class="project-image">
-                    <picture>
-                      <source srcset="images/project-3.webp" type="image/webp">
-                      <img src="images/project-3.jpg" alt="Реконструкция участка трассы М60">
-                    </picture>
-                  </div>
-                  <div class="project-overlay"></div>
-                  <h3 class="project-title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
-                  <div class="project-hover">
-                    <div>
-                      <h3 class="project-hover__title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
-                      <!-- Текст из админки start -->
-                      <p>Это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"
-                        для
-                        текстов на латинице с начала XVI века.</p>
-                      <p>В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя
-                        Lorem
-                        Ipsum
-                        для распечатки образцов.</p>
-                      <!-- Текст из админки end -->
-                    </div>
-                    <div class="project-hover__read">
-                      Читать
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </section>
+          </section>
 
-        <section class="projects projects--list">
+        {% comment %} <section class="projects projects--list">
           <div class="wrapper projects__wrapper">
             <div class="projects-top">
               <!-- Здесь добавляется модификатор .header-block--bottom -->
@@ -368,7 +370,7 @@ creature: 2020
               </li>
             </ul>
           </div>
-        </section>
+        </section> {% endcomment %}
 
         <ul class="pagination">
           <li class="pagination-item pagination-item--back">
@@ -430,7 +432,7 @@ creature: 2020
     <footer class="footer">
       <div class="wrapper footer__wrapper">
         <a href="/" class="footer__logo">
-          <img src="images/logo.svg" alt="ДорСтройСервис" title="ДорСтройСервис">
+          <img src="{% static 'images/logo.svg' %}" alt="ДорСтройСервис" title="ДорСтройСервис">
         </a>
         <div class="footer-content">
           <div class="footer-content__top">
@@ -438,7 +440,7 @@ creature: 2020
               <ul class="footer-nav__list">
                 <li class="footer-nav__item">
                   <!-- Активному пункту меню вывести класс active -->
-                  <a href="#0" class="footer-nav__link active">Главная</a>
+                  <a href="" class="footer-nav__link active">Главная</a>
                 </li>
                 <li class="footer-nav__item">
                   <a href="#0" class="footer-nav__link">о нас</a>
@@ -453,7 +455,7 @@ creature: 2020
                   <a href="#0" class="footer-nav__link">объекты</a>
                 </li>
                 <li class="footer-nav__item">
-                  <a href="#0" class="footer-nav__link">новости</a>
+                  <a href="news/" class="footer-nav__link">новости</a>
                 </li>
                 <li class="footer-nav__item">
                   <a href="#0" class="footer-nav__link">производственная база</a>
@@ -532,28 +534,29 @@ creature: 2020
     <div class="header-block">
       <div class="header-block__text header-block__text--2 header-block__text--black">Форма <br> обратной связи</div>
     </div>
-    <form action="#0">
+    <form action="#0" method="POST">
+      {% csrf_token %}
       <div class="modal-form">
         <div class="required-fields__message"><span>*</span> - поля, обязательные для заполнения</div>
 
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="text" class="input-group__input" placeholder="Сергеев Михаил" required>
+          {{ form.name }}
           <span class="input-group__title">Имя</span>
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="tel" class="input-group__input" placeholder="8 (954) 342-11-23" required>
+          {{ form.phone }}
           <span class="input-group__title">Телефон</span>
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <input type="email" class="input-group__input" placeholder="adret1224@mail.ru">
+          {{ form.mail }}
           <span class="input-group__title">E-mail</span>
         </label>
         <label class="input-group">
           <!-- Errorlist сюда -->
-          <textarea class="input-group__textarea" placeholder="Текст вопроса"></textarea>
+          {{ form.text }}
           <span class="input-group__title">Вопрос</span>
         </label>
 
@@ -571,14 +574,14 @@ creature: 2020
   <div class="modal mfp-hide" style="display: none;">
     <div class="modal-success">
       <span class="img">
-        <img src="images/modal-success.svg" alt="Ваше сообщение успешно отправлено" title="Ваше сообщение успешно отправлено">
+        <img src="{% static 'images/modal-success.svg' %}" alt="Ваше сообщение успешно отправлено" title="Ваше сообщение успешно отправлено">
       </span>
       <span class="title">Ваше сообщение успешно отправлено</span>
     </div>
   </div>
 
-  <script src="js/combined.min.js"></script>
-  <script src="js/libs.js"></script>
+  <script src="{% static 'js/combined.min.js' %}"></script>
+  <script src="{% static 'js/libs.js' %}"></script>
 
   <div class="counters" hidden>
     <!--    counters    -->

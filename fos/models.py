@@ -14,3 +14,4 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Вопросы клиентов'
         verbose_name_plural = 'Обратная связь'
+        

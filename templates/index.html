@@ -142,7 +142,7 @@ creature: 2020
                     <a href="#0" class="header-nav__link">объекты</a>
                   </li>
                   <li class="header-nav__item">
-                    <a href="#0" class="header-nav__link">новости</a>
+                    <a href="news/" class="header-nav__link">новости</a>
                   </li>
                   <li class="header-nav__item">
                     <a href="#0" class="header-nav__link">производственная база</a>
@@ -176,13 +176,15 @@ creature: 2020
         </div>
         <div class="swiper-container intro-slider js-intro-slider">
           <div class="swiper-wrapper no-swiping">
-            {% for slide in slider_index %}
+            {% for item in sliders %}
+            {% for object in item.images.all %}
             <div class="swiper-slide intro-slider__slide">
               <picture>
-                <source srcset="{{ slide.index_img_webp.url  }}" type="image/webp">
-                <img src="{{ slide.index_img_jpeg.url }}" alt="slide_title">
+                <source srcset="{{ object.image_webp.url  }}" type="image/webp">
+                <img src="{{ object.image_jpg.url }}" alt="slide_title">
               </picture>
             </div>
+            {% endfor %}
             {% endfor %}
           </div>
           <div class="intro-slider__pagination"></div>
@@ -385,7 +387,7 @@ creature: 2020
               <ul class="footer-nav__list">
                 <li class="footer-nav__item">
                   <!-- Активному пункту меню вывести класс active -->
-                  <a href="#0" class="footer-nav__link active">Главная</a>
+                  <a href="" class="footer-nav__link active">Главная</a>
                 </li>
                 <li class="footer-nav__item">
                   <a href="#0" class="footer-nav__link">о нас</a>
@@ -400,7 +402,7 @@ creature: 2020
                   <a href="#0" class="footer-nav__link">объекты</a>
                 </li>
                 <li class="footer-nav__item">
-                  <a href="#0" class="footer-nav__link">новости</a>
+                  <a href="news/" class="footer-nav__link">новости</a>
                 </li>
                 <li class="footer-nav__item">
                   <a href="#0" class="footer-nav__link">производственная база</a>
