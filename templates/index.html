@@ -159,32 +159,30 @@ creature: 2020
 
       <div class="intro">
         <div class="intro-content">
+          {% for object in index_slider.description.all %}
           <div class="wrapper intro-content__wrapper">
             <div class="header-block intro-content__title">
-              <h1>Ремонт и обслуживание дорог</h1>
-              <div class="header-block__text header-block__text--1">Ремонт <br> и обслуживание дорог</div>
+              <h1>{{ object.title|safe }}</h1>
+              <div class="header-block__text header-block__text--1">{{ object.title|safe }}</div>
             </div>
             <div class="intro-content__text">
               <!-- Текст из админки start -->
-              <p>{{ description_up.desc_head }}</p>
-              <p>{{ description_up.desc_mid }}</p>
-              <p>{{ description_up.desc_bot }}</p>
+              <p>{{ object.text|safe }}</p>
               <!-- Текст из админки end -->
               <a href="#0" class="btn btn--orange intro-content__btn">Подробнее</a>
             </div>
           </div>
+          {% endfor %}
         </div>
         <div class="swiper-container intro-slider js-intro-slider">
           <div class="swiper-wrapper no-swiping">
-            {% for item in sliders %}
-            {% for object in item.images.all %}
+            {% for object in index_slider.images.all %}
             <div class="swiper-slide intro-slider__slide">
               <picture>
-                <source srcset="{{ object.image_webp.url  }}" type="image/webp">
+                <source srcset="{{ index.image_webp.url  }}" type="image/webp">
                 <img src="{{ object.image_jpg.url }}" alt="slide_title">
               </picture>
             </div>
-            {% endfor %}
             {% endfor %}
           </div>
           <div class="intro-slider__pagination"></div>
@@ -204,83 +202,42 @@ creature: 2020
           <div class="projects-top">
             <div class="header-block">
               <h2>Выполненные проекты</h2>
-              <div class="header-block__text header-block__text--2">Выполненные<br>проекты</div>
+              <div class="header-block__text header-block__text--2">Выполненные<br> проекты</div>
             </div>
             <a href="#0" class="projects-all">Все проекты</a>
           </div>
           <ul class="projects-items">
+            {% for item in sliders %}
             <li class="projects-item">
               <a href="#0" class="project">
+                {% for object in item.images.all %}
                 <div class="project-image">
                   <picture>
-                    <source srcset="{% static 'images/project-1.webp' %}" type="image/webp">
-                    <img src="{% static 'images/project-1.jpg' %}" alt="Реконструкция участка трассы М60">
+                    <source srcset="{{ object.image_webp.url }}" type="image/webp">
+                    <img src="{{ object.image_jpg.url }}" alt="Реконструкция участка трассы М60">
                   </picture>
                 </div>
+                {% endfor %}
+
+                {% for object in item.description.all %}
                 <div class="project-overlay"></div>
-                <h3 class="project-title">Реконструкция участка трассы М60</h3>
+                <h3 class="project-title">{{ object.title|safe }}</h3>
                 <div class="project-hover">
                   <div>
-                    <h3 class="project-hover__title">Реконструкция участка трассы М60</h3>
+                    <h3 class="project-hover__title">{{ object.title|safe }}</h3>
                     <!-- Текст из админки start -->
-                    <p>{{ desc_1.desc_up}}</p>
-                    <p>{{ desc_1.desc_down}}</p>
+                    <p>{{ object.text|safe }}</p>
                     <!-- Текст из админки end -->
                   </div>
                   <div class="project-hover__read">
                     Читать
                   </div>
                 </div>
+                {% endfor %}
               </a>
             </li>
-            <li class="projects-item">
-              <a href="#0" class="project">
-                <div class="project-image">
-                  <picture>
-                    <source srcset="{% static 'images/project-2.webp' %}" type="image/webp">
-                    <img src="{% static 'images/project-2.jpg' %}" alt="Строительство автомобильной дороги в пгт Бежаницы">
-                  </picture>
-                </div>
-                <div class="project-overlay"></div>
-                <h3 class="project-title">Строительство автомобильной дороги в пгт Бежаницы</h3>
-                <div class="project-hover">
-                  <div>
-                    <h3 class="project-hover__title">Строительство автомобильной дороги в пгт Бежаницы</h3>
-                    <!-- Текст из админки start -->
-                    <p>{{ desc_2.desc_up}}</p>
-                    <p>{{ desc_2.desc_down}}</p>
-                    <!-- Текст из админки end -->
-                  </div>
-                  <div class="project-hover__read">
-                    Читать
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="projects-item">
-              <a href="#0" class="project">
-                <div class="project-image">
-                  <picture>
-                    <source srcset="{% static 'images/project-3.webp' %}" type="image/webp">
-                    <img src="{% static 'images/project-3.jpg' %}" alt="Реконструкция участка трассы М60">
-                  </picture>
-                </div>
-                <div class="project-overlay"></div>
-                <h3 class="project-title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
-                <div class="project-hover">
-                  <div>
-                    <h3 class="project-hover__title">Реконструкция автомобильной дороги на улице Космонавтов</h3>
-                    <!-- Текст из админки start -->
-                    <p>{{ desc_3.desc_up}}</p>
-                    <p>{{ desc_3.desc_down}}</p>
-                    <!-- Текст из админки end -->
-                  </div>
-                  <div class="project-hover__read">
-                    Читать
-                  </div>
-                </div>
-              </a>
-            </li>
+            {% endfor %}
+           
           </ul>
         </div>
       </section>
@@ -293,30 +250,14 @@ creature: 2020
 
           <div class="swiper-container production-slider js-production-slider">
             <div class="swiper-wrapper">
+              {% for object in end_slider.images.all %}
               <div class="production-slide swiper-slide">
                 <picture>
-                  <source srcset="{% static 'images/production-slide-1.webp' %}" type="image/webp">
-                  <img src="{% static 'images/production-slide-1.jpg' %}" alt="production-slide_alt">
+                  <source srcset="{{ object.image_webp.url }}" type="image/webp">
+                  <img src="{{ object.image_jpg.url }}" alt="production-slide_alt">
                 </picture>
               </div>
-              <div class="production-slide swiper-slide">
-                <picture>
-                  <source srcset="{% static 'images/production-slide-2.webp' %}" type="image/webp">
-                  <img src="{% static 'images/production-slide-2.jpg' %}" alt="production-slide_alt">
-                </picture>
-              </div>
-              <div class="production-slide swiper-slide">
-                <picture>
-                  <source srcset="{% static 'images/production-slide-3.webp' %}" type="image/webp">
-                  <img src="{% static 'images/production-slide-3.jpg' %}" alt="production-slide_alt">
-                </picture>
-              </div>
-              <div class="production-slide swiper-slide">
-                <picture>
-                  <source srcset="{% static 'images/production-slide-4.webp' %}" type="image/webp">
-                  <img src="{% static 'images/production-slide-4.jpg' %}" alt="production-slide_alt">
-                </picture>
-              </div>
+              {% endfor %}
             </div>
             <div class="production-slider__pagination js-product-slider-pagination"></div>
             <button type="button" class="production-slider__btn production-slider__btn--prev"></button>
