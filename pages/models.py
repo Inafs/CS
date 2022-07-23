@@ -16,11 +16,6 @@ class Page(models.Model):
 
 class Description(models.Model):
     
-    DESCRIPTION_CHOICES = [
-        ('Заголовок', 'Заголовок'),
-        ( 'Текст', 'Текст'),
-    ]
-    
     title_description = models.CharField(max_length=50, verbose_name='Название описания')
     title = models.CharField(verbose_name='Заголовок описания', max_length=50, blank=True)
     text = RichTextField(verbose_name='Текст описания', blank=True)
